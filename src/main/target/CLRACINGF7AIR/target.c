@@ -33,7 +33,7 @@ const timerHardware_t timerHardware[] = {
     DEF_TIM(TIM4, CH3, PB8, TIM_USE_MC_MOTOR | TIM_USE_FW_SERVO, 0, 0),                     // S3 D(2, 4, 7)
     DEF_TIM(TIM4, CH4, PB9, TIM_USE_MC_MOTOR | TIM_USE_FW_SERVO, 0, 0),                     // S4 D(2, 7, 7)
 
-    DEF_TIM(TIM4, CH2, PA1, TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 0),                     // S5 DMA1_ST2
+    DEF_TIM(TIM5, CH2, PA1, TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 0),                     // S5 DMA1_ST2
     DEF_TIM(TIM8, CH3, PC8, TIM_USE_MC_MOTOR | TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),  // S6 DMA2_ST6
     DEF_TIM(TIM8, CH4, PC8, TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),                     // S7 DMA1_ST7
 
