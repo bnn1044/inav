@@ -20,25 +20,24 @@
 #include <stdint.h>
 
 #include "platform.h"
+#include "drivers/bus.h"
 #include "drivers/io.h"
-
-#include "drivers/dma.h"
+#include "drivers/pwm_mapping.h"
 #include "drivers/timer.h"
-#include "drivers/timer_def.h"
 
-const timerHardware_t timerHardware[USABLE_TIMER_CHANNEL_COUNT] = {
+const timerHardware_t timerHardware[] = {
+    DEF_TIM(TIM2, CH2, PB3, TIM_USE_PPM,                         0, 0),                     // PPM
 
-    DEF_TIM(TIM2,  CH2,   PB3, TIM_USE_CAMERA_CONTROL,     0, 0), // USE FOR CAMERA CONTROL
+    DEF_TIM(TIM4, CH1, PB6, TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 0),                     // S1 D(1, 4, 5)
+    DEF_TIM(TIM4, CH2, PB7, TIM_USE_MC_MOTOR | TIM_USE_FW_SERVO, 0, 0),                     // S2 D(2, 3, 7)
+    DEF_TIM(TIM4, CH3, PB8, TIM_USE_MC_MOTOR | TIM_USE_FW_SERVO, 0, 0),                     // S3 D(2, 4, 7)
+    DEF_TIM(TIM4, CH4, PB9, TIM_USE_MC_MOTOR | TIM_USE_FW_SERVO, 0, 0),                     // S4 D(2, 7, 7)
 
-    DEF_TIM(TIM4,  CH1,  PB6, TIM_USE_MOTOR,               0, 0), // D1-ST0                   MOTOR1
-    DEF_TIM(TIM4,  CH2,  PB7, TIM_USE_MOTOR,               0, 0), // D1-ST3                   MOTOR2
-    DEF_TIM(TIM4,  CH3,  PB8, TIM_USE_MOTOR,               0, 0), // D1-ST7                   MOTOR3
-    DEF_TIM(TIM4,  CH4,  PB9, TIM_USE_MOTOR,               0, 0), // NONE  TIM4_UP_D1-ST6     MOTOR4
-    DEF_TIM(TIM5,  CH2,  PA1, TIM_USE_MOTOR,               0, 0), // D1-ST4                   MOTOR5
-    DEF_TIM(TIM8,  CH3,  PC8, TIM_USE_MOTOR,               0, 0), // D2-ST2/D2-ST4            MOTOR6
-    DEF_TIM(TIM8,  CH4,  PC9, TIM_USE_MOTOR,               0, 0), // D2-ST7                   MOTOR7
+    DEF_TIM(TIM4, CH2, PA1, TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 0),                     // S5 DMA1_ST2
+    DEF_TIM(TIM8, CH3, PC8, TIM_USE_MC_MOTOR | TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),  // S6 DMA2_ST6
+    DEF_TIM(TIM8, CH4, PC8, TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),                     // S7 DMA1_ST7
 
-    DEF_TIM(TIM3,  CH4, PB1, TIM_USE_MOTOR | TIM_USE_LED,  0, 0), // D1-ST2                   LED/MOTOR5
-
-
+    DEF_TIM(TIM3, CH4, PB1, TIM_USE_LED, 0, 0),                                            // LED STRIP  D(1, 5, 3)
 };
+
+const int timerHardwareCount = sizeof(timerHardware) / sizeof(timerHardware[0]);
