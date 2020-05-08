@@ -70,6 +70,7 @@
 #define PITOT_I2C_BUS           BUS_I2C2
 
 // ***************  Black Box **************************
+#define USE_SPI_DEVICE_2
 #define SPI2_NSS_PIN             PB12
 #define SPI2_SCK_PIN             PB13
 #define SPI2_MISO_PIN            PB14
@@ -78,8 +79,6 @@
 #define ENABLE_BLACKBOX_LOGGING_ON_SPIFLASH_BY_DEFAULT
 #define USE_FLASHFS
 #define USE_FLASH_M25P16
-#define USE_FLASH_W25M
-#define USE_FLASH_W25N01G          // 1G NAND flash support
 #define M25P16_CS_PIN            PB12
 #define M25P16_SPI_BUS           BUS_SPI2
 
