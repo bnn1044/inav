@@ -16,19 +16,17 @@
  */
 
 #pragma once
-
+#define USE_TARGET_CONFIG
 #define TARGET_BOARD_IDENTIFIER "CLRA"
 #define USBD_PRODUCT_STRING  "CLRACINGF7"
 
 #define LED0                    PB0
-#define LED1                    PA14
 
 #define BEEPER                  PB4
 #define BEEPER_INVERTED
 // *************** Gyro & ACC **********************
 #define USE_SPI
 #define USE_SPI_DEVICE_1
-
 #define SPI1_SCK_PIN            PA5
 #define SPI1_MISO_PIN           PA6
 #define SPI1_MOSI_PIN           PA7
@@ -47,7 +45,7 @@
 
 // *************** I2C/Baro/Mag *********************
 #define USE_I2C
-#define USE_I2C_DEVICE_1
+#define USE_I2C_DEVICE_2
 #define I2C2_SCL                PB10        // SCL pad
 #define I2C2_SDA                PB11        // SDA pad
 
@@ -57,8 +55,6 @@
 #define USE_BARO_MS5611
 #define USE_BARO_BMP085
 #define USE_BARO_LPS25H
-
-
 
 #define USE_MAG
 #define MAG_I2C_BUS             BUS_I2C2
@@ -109,9 +105,9 @@
 #define UART2_RX_PIN            PA3
 #define UART2_TX_PIN            PA2
 
-#define USE_UART3
+/*#define USE_UART3
 #define UART3_RX_PIN            PB11
-#define UART3_TX_PIN            PB10
+#define UART3_TX_PIN            PB10*/
 
 #define USE_UART4
 #define UART4_RX_PIN            PA1
@@ -151,7 +147,7 @@
 //#define PINIO4_PIN                  PC9 // 2xCamera switcher
 
 #define USE_RANGEFINDER
-#define RANGEFINDER_I2C_BUS         BUS_I2C1
+#define RANGEFINDER_I2C_BUS         BUS_I2C2
 
 #define DEFAULT_FEATURES        (FEATURE_TX_PROF_SEL | FEATURE_CURRENT_METER | FEATURE_TELEMETRY| FEATURE_VBAT | FEATURE_OSD )
 
@@ -168,7 +164,7 @@
 #define TARGET_IO_PORTC         0xffff
 #define TARGET_IO_PORTD         (BIT(2))
 
-#define MAX_PWM_OUTPUT_PORTS        7
+#define MAX_PWM_OUTPUT_PORTS        9
 #define USE_DSHOT
 #define USE_ESC_SENSOR
 #define USE_SERIALSHOT
