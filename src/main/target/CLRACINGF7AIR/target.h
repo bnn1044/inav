@@ -56,6 +56,9 @@
 #define USE_BARO_BMP280
 #define USE_BARO_MS5611
 #define USE_BARO_BMP085
+#define USE_BARO_LPS25H
+
+
 
 #define USE_MAG
 #define MAG_I2C_BUS             BUS_I2C2
@@ -139,6 +142,13 @@
 #define CURRENT_METER_ADC_CHANNEL   ADC_CHN_1
 #define RSSI_ADC_CHANNEL            ADC_CHN_3
 
+// *************** PINIO ***************************
+#define USE_PINIO
+#define USE_PINIOBOX
+#define PINIO1_PIN                  PC13 // VTX power switcher
+#define PINIO2_PIN                  PC14 // Camera switcher
+#define PINIO3_PIN                  PC15 // BT_ON
+//#define PINIO4_PIN                  PC9 // 2xCamera switcher
 
 #define USE_RANGEFINDER
 #define RANGEFINDER_I2C_BUS         BUS_I2C1
